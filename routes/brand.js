@@ -16,8 +16,8 @@ router.get("/list",async(req,res)=>{
 
 //POST  Add new Brand
 router.post("/addbrand",async(req,res)=>{
-    const {newCat} = req.body;
-    await brandModel.create(newCat);
+    const {newBrand} = req.body;
+    await brandModel.create(newBrand);
     return res.json({"Message":"Brand Data Add successfully...!"});
 });
 
