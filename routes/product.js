@@ -11,10 +11,7 @@ router.get("/list",async(req,res)=>{
     if(productList.length === 0){
         return res.json({"Message":"Record Not Found."});
     }
-    productList.forEach(item=>{
-        //res.send("Product data:",item.storage[0]["int_memory"]);
-    })
-    return res.json({data:productList});
+    return res.json(productList);
 });
 
 //POST  Add new Product
