@@ -11,7 +11,7 @@ router.get("/list",async(req,res)=>{
     if(productList.length === 0){
         return res.json({"Message":"Record Not Found."});
     }
-    return res.send(productList);
+    return res.json({data:productList});
 });
 
 //POST  Add new Product
@@ -21,13 +21,13 @@ router.post("/addproduct",async(req,res)=>{
     return res.json({"Message":"Product Data Add successfully...!","Added Data is":addedData});
 });
 
-//PUT Update Category
+//PUT Update Price
 router.put("/updateproduct/:id",async(req,res)=>{
     const pid=req.params.id;
-    const ram=req.body.ram;
+    const price=req.body.price;
     const updatedData=await productModel.findOneAndUpdate(
         {id:pid},
-        {platform_performance:{$push:{RAM:ram}}},
+        {price:price},
         {new:true}
     );
     return res.json({"Upadated Record Is ":updatedData});
