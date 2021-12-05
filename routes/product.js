@@ -11,7 +11,7 @@ router.get("/list",async(req,res)=>{
     if(productList.length === 0){
         return res.json({"Message":"Record Not Found."});
     }
-    return res.json(productList);
+    return res.send(productList);
 });
 
 //POST  Add new Product
