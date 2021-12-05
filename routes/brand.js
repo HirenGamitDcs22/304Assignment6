@@ -3,7 +3,7 @@ const router=express.Router();
 
 const brandModel = require("../models/brand");
 
-router.get("/",(req,res)=> res.json("Brand Home."));
+router.get("/",(req,res)=> res.send("Brand Home."));
 
 //GET Brand
 router.get("/list",async(req,res)=>{
