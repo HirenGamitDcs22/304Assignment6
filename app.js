@@ -15,5 +15,5 @@ const productRoutes=require("./routes/product");
 app.use("/brand",brandRoutes);
 app.use("/product",productRoutes);
 
-app.get('/', (req, res) => res.send('Welcome to Mobile App !'))
+app.get('/', (req, res) => res.send('Welcome to Mobile Detali Api !'))
 app.listen(port, () => console.log(`Server started on port ${port}!`))
