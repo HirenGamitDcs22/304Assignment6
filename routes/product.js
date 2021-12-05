@@ -11,6 +11,9 @@ router.get("/list",async(req,res)=>{
     if(productList.length === 0){
         return res.json({"Message":"Record Not Found."});
     }
+    productList.forEach(item=>{
+        //res.send("Product data:",item.storage[0]["int_memory"]);
+    })
     return res.json({data:productList});
 });
 
@@ -18,25 +21,25 @@ router.get("/list",async(req,res)=>{
 router.post("/addproduct",async(req,res)=>{
     const {newProduct} = req.body;
     const addedData=await productModel.create(newProduct);
-    return res.json({"Message":"Product Data Add successfully...!",data:addedData});
+    return res.json({"Message":"Product Data Add successfully...!","Added Data is":addedData});
 });
 
 //PUT Update Category
-router.put("updateproduct/:id",async(req,res)=>{
-    const rid=req.params.id;
-    const name=req.body.name;
+router.put("/updateproduct/:id",async(req,res)=>{
+    const pid=req.params.id;
+    const ram=req.body.ram;
     const updatedData=await productModel.findOneAndUpdate(
-        {id:rid},
-        {name:name},
+        {id:pid},
+        {platform_performance:{$push:{RAM:ram}}},
         {new:true}
     );
-    return res.json({data:updatedData});
+    return res.json({"Upadated Record Is ":updatedData});
 });
 
-router.delete("delproduct/:id",async(req,res)=>{
+router.delete("/delproduct/:id",async(req,res)=>{
     const id=req.params.id;
     const deldata=await productModel.findOneAndDelete({id:id});
-    return res.json({data:deldata});
+    return res.json({"Deleted Data Is ":deldata});
 });
 
 module.exports = router;
