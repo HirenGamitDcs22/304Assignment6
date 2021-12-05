@@ -5,10 +5,10 @@ const productSchema=mongoose.Schema({
     name:String,
     gen_features:[{
         sim_size:String,
-        sim_type:[String],
-        net_type:[String],
+        sim_type:String,
+        net_type:String,
         battery_type:String,
-        sensors:[String],
+        sensors:String,
         rem_battery:String
     }],
     platform_performance:[{
@@ -22,7 +22,7 @@ const productSchema=mongoose.Schema({
         front_camera:String,
         flash:String,
         zoom:String,
-        video_rec:[String]
+        video_rec:String
     }],
     display:[{ 
         resolution:String,
@@ -38,7 +38,7 @@ const productSchema=mongoose.Schema({
         bluetooth:String
     }],
     price:String,
-    variant:[String],
+    variant:String,
     brand_id:String
 });
 
