@@ -16,7 +16,7 @@ router.get("/list",async(req,res)=>{
 
 //POST  Add new Product
 router.post("/addproduct",async(req,res)=>{
-    const {newProduct} = req.body;
+    const newProduct = req.body;
     const addedData=await productModel.create(newProduct);
     return res.json({"Message":"Product Data Add successfully...!","Added Data is":addedData});
 });
